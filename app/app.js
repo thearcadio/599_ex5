@@ -8,7 +8,7 @@ app.set('appData', dataFile);
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 
-app.locals.siteTitle = 'Roux Meetups';
+app.locals.siteTitle = 'My Favorite Places';
 app.locals.allSpeakers = dataFile.data.highlights;
 
 app.use(express.static('app/public'));

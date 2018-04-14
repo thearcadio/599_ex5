@@ -23,8 +23,8 @@ router.get('/speakers/:speakerid', function(req, res) {
   var pagePhotos = [];
   var pageSpeakers = [];
 
-  data.speakers.forEach(function(item) {
-    if (item.shortname == req.params.speakerid) {
+  data.data.highlights.forEach(function(item) {
+    if (item.id == req.params.speakerid) {
       pageSpeakers.push(item);
       pagePhotos = pagePhotos.concat(item.artwork);
     }

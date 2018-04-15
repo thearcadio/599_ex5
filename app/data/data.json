@@ -5,12 +5,13 @@
       {"id":"1",
         "site":"Rutgers",
         "category":"School",
-        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "info": "Rutgers, The State University of New Jersey, commonly referred to as Rutgers University, Rutgers, or RU, is an American public research university and is the largest institution of higher education in New Jersey.",
         "lat": "40.5008186",
         "long": "-74.4473991",
         "image": "https://upload.wikimedia.org/wikipedia/en/c/ce/Rutgers%2C_The_State_University_of_New_Jersey_logo.png",
         "video": "https://www.youtube.com/watch?v=XLBavtY8YC0",
-        "videoEmbed":"https://www.youtube.com/embed/XLBavtY8YC0"
+        "videoEmbed":"https://www.youtube.com/embed/XLBavtY8YC0",
+        "zoom": "7"
       },
       {"id":"2",
         "site":"Munich",
@@ -20,7 +21,8 @@
         "long": "11.2616557",
         "image": "https://thumbs.dreamstime.com/b/new-town-hall-marienplatz-square-munich-germany-high-angle-view-skyline-view-lookout-deck-tower-st-93805407.jpg",
         "video": "https://www.youtube.com/watch?v=87Rztt8FeOU",
-        "videoEmbed": "https://www.youtube.com/embed/87Rztt8FeOU"
+        "videoEmbed": "https://www.youtube.com/embed/87Rztt8FeOU",
+        "zoom": "4"
       },
       {"id":"3",
         "site":"New York City",
@@ -30,7 +32,8 @@
         "long": "-74.2598655",
         "image": "https://land8.com/wp-content/uploads/2016/10/Vertical-Times.jpg",
         "video": "https://www.youtube.com/watch?v=MtCMtC50gwY",
-        "videoEmbed": "https://www.youtube.com/embed/MtCMtC50gwY"
+        "videoEmbed": "https://www.youtube.com/embed/MtCMtC50gwY",
+        "zoom": "6"
       },
       {"id":"4",
         "site":"Augsburg",
@@ -40,17 +43,19 @@
         "long": "10.7213573",
         "image": "https://www.goabroad.com/images/listingphotos/standard/lowres-germany2-1474900372.jpg",
         "video": "https://www.youtube.com/watch?v=A1-ZY8Rf-RM",
-        "videoEmbed": "https://www.youtube.com/embed/A1-ZY8Rf-RM"
+        "videoEmbed": "https://www.youtube.com/embed/A1-ZY8Rf-RM",
+        "zoom": "4"
       },
       {"id":"5",
         "site":"Yankee Stadium",
         "category":"Sports",
-        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "lat": "47.3774337",
-        "long": "8.4666753",
+        "info": "Yankee Stadium is a stadium located in the Concourse neighborhood of the Bronx in New York City. It serves as the home ballpark for the New York Yankees of Major League Baseball, and is also the home park for New York City FC of Major League Soccer.",
+        "lat": "40.8296426",
+        "long": "-73.9261745",
         "image": "https://static.turbosquid.com/Preview/2015/06/13__05_28_36/_thumb.jpg8f4a5931-2ec6-40da-8f9a-f45837acb715Original.jpg",
         "video": "https://www.youtube.com/watch?v=-_xGEk87q_4",
-        "videoEmbed": "https://www.youtube.com/embed/-_xGEk87q_4"
+        "videoEmbed": "https://www.youtube.com/embed/-_xGEk87q_4",
+        "zoom": "9"
       },
       {"id":"6",
         "site":"USC",
@@ -60,7 +65,8 @@
         "long": "-118.285117",
         "image": "https://upload.wikimedia.org/wikipedia/he/thumb/b/bc/University_of_Southern_California_seal.svg/287px-University_of_Southern_California_seal.svg.png",
         "video": "https://www.youtube.com/watch?v=eERe0-E4Zpg",
-        "videoEmbed": "https://www.youtube.com/embed/eERe0-E4Zpg"
+        "videoEmbed": "https://www.youtube.com/embed/eERe0-E4Zpg",
+        "zoom": "4"
       },
       {"id":"7",
         "site":"Seattle",
@@ -70,7 +76,8 @@
         "long": "-122.4821475",
         "image": "https://www.shoreexcursionsgroup.com/img/tour/AKSESEDUCKT-2.jpg",
         "video": "https://www.youtube.com/watch?v=92ISlO9U-84",
-        "videoEmbed": "https://www.youtube.com/embed/92ISlO9U-84"
+        "videoEmbed": "https://www.youtube.com/embed/92ISlO9U-84",
+        "zoom": "6"
       }
     ]
   }

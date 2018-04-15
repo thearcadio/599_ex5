@@ -63,11 +63,11 @@
 async defer></script>
 
 <body>
-  <article class="speakerslist <% if (pageID == 'home') { %>jumbotron hidden-xs<% } %>">
-    <div class="container">
+  <article class="speakerslist <% if (pageID == 'home') { %>hidden-sm<% } %>" style = "background-color: #FCEB97">
+    <div class="container" style = "background-color: #FCEB97">
       <div class="row">
           <% speakers.forEach(function(item) { %>
-          <div class="<% if (pageID == 'home') { %>col-sm-6 col-md-4 col-lg-3 text-center<% } else { %>col-sm-12 <% } %>">
+          <div class="<% if (pageID == 'home') { %>d-none d-md-block col-md-6 col-lg-4 col-xl-3 text-center<% } else { %>col-sm-12 <% } %>">
             <h3 class="speakerslist-title"><small> <%= item.site %> </small></h3>
             <p class="speakerslist-info">
               <a href="/speakers/<%= item.id %>">
@@ -78,7 +78,7 @@ async defer></script>
                 <% } %>
 
                 <% if (pageID == 'speakerList') { %>
-                  <img class="speakerslist-img img-circle pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "200" style = "display: inline-block; float: left;"></a>
+                  <img class="speakerslist-img img-circle pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "200" style = "display: inline-block; float: left; margin-bottom: 10px;"></a>
                   <iframe width="300" height="200" src="<%= item.videoEmbed %>" style = "display: inline-block;"> </iframe>
                   <h5 class="speakerslist-name"><small><%= item.category %></small></h5>
                 <% } %>

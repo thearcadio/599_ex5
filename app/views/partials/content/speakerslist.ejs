@@ -23,7 +23,7 @@
 
         //mapToUse.panTo(marker.getPosition());
 
-        var contentString = '<div style="color:red">'+
+        var contentString = '<div style="color: darkblue">'+
         locObjToUse.info +
         '</div>';
 
@@ -43,16 +43,18 @@
           center: mapCenter,
           zoom: 17,
           gestureHandling: 'none',
+          mapTypeControl: false,
           zoomControl: false,
           scaleControl: false,
           scrollwheel: false,
+          streetViewControl: false,
           disableDoubleClickZoom: true,
+          fullscreenControl: false
         });
 
         for (i = 0; i < locArray.length; i++) {
           placeMarker(map, locArray, i);
         }
-
       }
   </script>
 </head>
@@ -83,7 +85,7 @@ async defer></script>
               </a>
 
               <% if (pageID == 'speakerDetail') { %>
-                <script> parseFunction("<%= item.site %>", "<%= item.lat %>","<%= item.long %>","<%= item.category %>") </script>
+                <!-- <script> parseFunction("<%= item.site %>", "<%= item.lat %>","<%= item.long %>","<%= item.category %>") </script> -->
                 <img class="speakerslist-img img-responsive pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "300"></a>
                 <p> <small> <%= item.info %> </small> </p>
                 <iframe width="375" height="240" src="<%= item.videoEmbed %>" style = "display: inline-block; float: left; margin-right: 18px; margin-bottom: 10px;"> </iframe>

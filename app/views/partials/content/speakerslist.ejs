@@ -1,126 +1,108 @@
 <head>
   <script>
-    var locObj1 = {
-    address: "11 Henderson Rd, Kendall Park, NJ 08824",
-    category: "VFW",
-    info: "VFW Post 9111",
-    lat: 40.435693,
-    lng: -74.539348
-    };
+      var locObj1;
+      var map;
+      var mapCenter = {lat: 40.435693, lng: -74.539348};
 
-    locArray = [locObj1];
+      locObj1 = {
+        category: "VFW",
+        info: "VFW Post 9111",
+        lat: 40.435693,
+        lng: -74.539348
+      };
 
-    var map;
-    var mapCenter = {lat: 40.435693, lng: -74.539348};
+      locArray = [locObj1];
 
-    function placeMarker(mapToUse, locArrayToUse, indexToUse){
-      var locObjToUse = locArrayToUse[indexToUse];
-      var markerPos = {lat: locObjToUse.lat, lng: locObjToUse.lng}
-      var marker = new google.maps.Marker({
-        position: markerPos,
-        map: mapToUse
-      });
+      function placeMarker(mapToUse, locArrayToUse, indexToUse){
+        var locObjToUse = locArrayToUse[indexToUse];
+        var markerPos = {lat: locObjToUse.lat, lng: locObjToUse.lng}
+        var marker = new google.maps.Marker({
+          position: markerPos,
+          map: mapToUse
+        });
 
-      var contentString = '<div style="color:red">'+
-      locObjToUse.info +
-      '</div>';
+        //mapToUse.panTo(marker.getPosition());
 
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-      marker.addListener('mouseover', function() {
-        infowindow.open(mapToUse, marker);
-      });
-      marker.addListener('mouseout', function() {
-        infowindow.close(mapToUse, marker);
-      });
-    }
+        var contentString = '<div style="color:red">'+
+        locObjToUse.info +
+        '</div>';
 
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        marker.addListener('mouseover', function() {
+          infowindow.open(mapToUse, marker);
+        });
+        marker.addListener('mouseout', function() {
+          infowindow.close(mapToUse, marker);
+        });
+      }
 
-    function automateGeoCode_PlaceMarker(locIndex, locArray, mapToUse) {
-    var locObjToUse = locArray[locIndex];
-    var address = locObjToUse.address;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == 'OK') {
-        locArray[locIndex].lat = results[0].geometry.location.lat;
-        locArray[locIndex].lng = results[0].geometry.location.lng;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: mapCenter,
+          zoom: 17,
+          gestureHandling: 'none',
+          zoomControl: false,
+          scaleControl: false,
+          scrollwheel: false,
+          disableDoubleClickZoom: true,
+        });
 
-        placeMarker(mapToUse, locArray, locIndex)
-
-        var nextIndex = locIndex + 1;
-        if(nextIndex < locArray.length){
-          automateGeoCode_PlaceMarker(nextIndex, locArray, mapToUse);
+        for (i = 0; i < locArray.length; i++) {
+          placeMarker(map, locArray, i);
         }
-      }
-      else {
-        //alert('Geocode was not successful for the following reason: ' + status);
-        setTimeout(function(){ automateGeoCode_PlaceMarker(locIndex, locArray, mapToUse); }, 1000);
-      }
-    });
-    }
 
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: mapCenter,
-        zoom: 17,
-        gestureHandling: 'none',
-        zoomControl: false,
-        scaleControl: false,
-        scrollwheel: false,
-        disableDoubleClickZoom: true,
-      });
-
-      for (i = 0; i < locArray.length; i++) {
-        placeMarker(map, locArray, i);
       }
-
-    }
   </script>
 </head>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeBdRSta06gvp8Gtxd1trYmvFcsLuHxGI&callback=initMap"
 async defer></script>
 
-<article class="speakerslist <% if (pageID == 'home') { %>jumbotron hidden-xs<% } %>">
-  <div class="container">
-    <div class="row">
-        <% speakers.forEach(function(item) { %>
-        <div class="<% if (pageID == 'home') { %>col-sm-6 col-md-4 col-lg-3 text-center<% } else { %>col-sm-12 <% } %>">
-          <h3 class="speakerslist-title"><small> <%= item.site %> </small></h3>
-          <p class="speakerslist-info">
-            <a href="/speakers/<%= item.id %>">
+<body>
+  <article class="speakerslist <% if (pageID == 'home') { %>jumbotron hidden-xs<% } %>">
+    <div class="container">
+      <div class="row">
+          <% speakers.forEach(function(item) { %>
+          <div class="<% if (pageID == 'home') { %>col-sm-6 col-md-4 col-lg-3 text-center<% } else { %>col-sm-12 <% } %>">
+            <h3 class="speakerslist-title"><small> <%= item.site %> </small></h3>
+            <p class="speakerslist-info">
+              <a href="/speakers/<%= item.id %>">
 
-              <% if (pageID == 'home') { %>
-                <h5 class="speakerslist-name"><a href="/speakers/<%= item.id %>"> <small><%= item.category %></a></small></h5>
-                <img class="speakerslist-img img-circle" src="<%= item.image %>" alt="Photo of <%= item.site %>" width = "200"></a>
-              <% } %>
+                <% if (pageID == 'home') { %>
+                  <h5 class="speakerslist-name"><a href="/speakers/<%= item.id %>"> <small><%= item.category %></a></small></h5>
+                  <img class="speakerslist-img img-circle" src="<%= item.image %>" alt="Photo of <%= item.site %>" width = "200"></a>
+                <% } %>
 
-              <% if (pageID == 'speakerList') { %>
-                <img class="speakerslist-img img-circle pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "200" style = "display: inline-block; float: left;"></a>
-                <iframe width="300" height="200" src="<%= item.videoEmbed %>" style = "display: inline-block;"> </iframe>
-                <h5 class="speakerslist-name"><small><%= item.category %></small></h5>
+                <% if (pageID == 'speakerList') { %>
+                  <img class="speakerslist-img img-circle pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "200" style = "display: inline-block; float: left;"></a>
+                  <iframe width="300" height="200" src="<%= item.videoEmbed %>" style = "display: inline-block;"> </iframe>
+                  <h5 class="speakerslist-name"><small><%= item.category %></small></h5>
+                <% } %>
+              </a>
+
+              <% if (pageID == 'speakerDetail') { %>
+                <script> parseFunction("<%= item.site %>", "<%= item.lat %>","<%= item.long %>","<%= item.category %>") </script>
+                <img class="speakerslist-img img-responsive pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "300"></a>
+                <p> <small> <%= item.info %> </small> </p>
+                <iframe width="375" height="240" src="<%= item.videoEmbed %>" style = "display: inline-block; float: left; margin-right: 18px; margin-bottom: 10px;"> </iframe>
+                <div id="map" style = "width:375px; height:240px;"></div>
               <% } %>
             </a>
 
-            <% if (pageID == 'speakerDetail') { %>
-              <img class="speakerslist-img img-responsive pull-left" src="<%= item.image %>" alt="Photo of <%= item.name %>" width = "300"></a>
-              <p> <small> <%= item.info %> </small> </p>
-              <iframe width="375" height="240" src="<%= item.videoEmbed %>" style = "display: inline-block; float: left; margin-right: 18px; margin-bottom: 10px;"> </iframe>
-              <div id="map" style = "width:375px; height:240px;"></div>
-            <% } %>
-          </a>
 
-
-            <% if (pageID !== 'home') { %>
-              <% if (pageID == 'speakerList') { %>
-                <%= item.summary %>
-              <% } else { %>
-                <%- item.description %>
+              <% if (pageID !== 'home') { %>
+                <% if (pageID == 'speakerList') { %>
+                  <%= item.summary %>
+                <% } else { %>
+                  <%- item.description %>
+                <% } %>
               <% } %>
-            <% } %>
-          </p>
-        </div>
-        <%  }); %>
-    </div><!-- row -->
-  </div><!-- container -->
-</article>
+            </p>
+          </div>
+          <%  }); %>
+      </div><!-- row -->
+    </div><!-- container -->
+  </article>
+</body>

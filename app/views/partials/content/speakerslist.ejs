@@ -24,12 +24,7 @@ async defer></script>
               </a>
 
               <% if (pageID == 'speakerDetail') { %>
-                <!-- <script> parseFunction("<%= item.site %>", "<%= item.lat %>","<%= item.long %>","<%= item.category %>") </script> -->
                 <script>
-                  // console.log(<%- item.lat %>)
-                  // console.log(<%- item.long %>)
-                  // console.log("<%- item.category %>")
-                  // console.log("<%- item.site %>")
                   var locObj1;
                   var map;
                   var mapCenter = {lat: <%- item.lat %>, lng: <%- item.long %>};
